@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="calc" type="com.example.myapplication.Calculator"/>
+        <import type="com.example.myapplication.Operation"/>
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/math_operation"
+            android:layout_width="match_parent"
+            android:layout_height="160sp"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:text="@{calc.display}"
+            android:gravity="end"
+            android:ellipsize="start"
+            android:textSize="50sp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteY="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                tools:ignore="Suspicious0dp">
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(7)}"
+                    android:text="7" />
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(8)}"
+                    android:text="8"
+                    />
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(9)}"
+                    android:text="9" />
+
+                <TextView
+                    style="@style/ActionButton"
+                    android:onClick="@{() -> calc.addOperation(Operation.MUL)}"
+                    android:text="×" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                tools:ignore="Suspicious0dp">
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(4)}"
+                    android:text="4" />
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(5)}"
+                    android:text="5" />
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(6)}"
+                    android:text="6" />
+
+                <TextView
+                    style="@style/ActionButton"
+                    android:onClick="@{() -> calc.addOperation(Operation.DIV)}"
+                    android:text="÷" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                tools:ignore="Suspicious0dp">
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(1)}"
+                    android:text="1" />
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(2)}"
+                    android:text="2" />
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(3)}"
+                    android:text="3" />
+
+                <TextView
+                    style="@style/ActionButton"
+                    android:onClick="@{() -> calc.addOperation(Operation.SUB)}"
+                    android:text="-" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                tools:ignore="Suspicious0dp">
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addPoint()}"
+                    android:text="." />
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.addDigit(0)}"
+                    android:text="0" />
+
+                <TextView
+                    style="@style/NumberButton"
+                    android:onClick="@{() -> calc.compute()}"
+                    android:text="=" />
+
+                <TextView
+                    style="@style/ActionButton"
+                    android:onClick="@{() -> calc.addOperation(Operation.ADD)}"
+                    android:text="+" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:orientation="horizontal"
+                tools:ignore="Suspicious0dp">
+
+                <TextView
+                    style="@style/ActionButton"
+                    android:onClick="@{() -> calc.reset()}"
+                    android:text="C" />
+
+                <TextView
+                    style="@style/ActionButton"
+                    android:onClick="@{() -> calc.clear()}"
+                    android:text="Del" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
